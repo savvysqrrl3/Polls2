@@ -1,0 +1,61 @@
+<a [routerLink]="['/dashboard']">Cancel</a>
+
+<h4>Put the question and option here:</h4>
+
+<form (submit)="newPoll()" #addPoll='ngForm'>
+  <h5>
+    Question:
+    <input 
+    type="text" 
+    name="title" 
+    required
+    minlength="8"
+    [(ngModel)]='newP.title'
+    #title='ngModel'>
+  </h5>
+  <h5>
+    Option 1:
+    <input 
+    type="text" 
+    name="opt1" 
+    required
+    minlength="3"
+    [(ngModel)]='newP.opt1'
+    #opt1='ngModel'>
+  </h5>
+  <h5>
+    Option 2:
+    <input 
+    type="text" 
+    name="opt2" 
+    required
+    minlength="3"
+    [(ngModel)]='newP.opt2'
+    #opt2='ngModel'>
+  </h5>
+  <h5>
+    Option 3:
+    <input 
+    type="text" 
+    name="opt3" 
+    required
+    minlength="3"
+    [(ngModel)]='newP.opt3'
+    #opt3='ngModel'>
+  </h5>
+  <h5>
+    Option 4:
+    <input 
+    type="text" 
+    name="opt4" 
+    required
+    minlength="3"
+    [(ngModel)]='newP.opt4'
+    #opt4='ngModel'>
+  </h5>
+  <input 
+  type="submit" 
+  value="Create Poll" 
+  [disabled]='addPoll.invalid'>
+</form>
+

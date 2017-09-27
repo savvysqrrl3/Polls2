@@ -1,0 +1,17 @@
+
+<div class="login">
+  <form (submit)="onSubmit()">
+    <h4>
+      Your Name:
+      <input 
+      type="text" 
+      name="name" 
+      required
+      placeholder="Oliver"
+      [(ngModel)]='newUser.name'
+      #name='ngModel'>
+    </h4>
+    <input type="submit" value="Login" id="button">
+  </form>
+</div>
+
