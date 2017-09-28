@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../item.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { SearchPipe } from '../search.pipe'
 
 @Component({
   selector: 'app-dashboard',
@@ -11,9 +12,8 @@ import { ActivatedRoute } from '@angular/router';
 export class DashboardComponent implements OnInit {
   allPolls = [];
   username;
-  search = {
-    content: "",
-  }
+  
+  searchterms = "";
 
   constructor(private _itemService: ItemService, private _router: Router, private _route: ActivatedRoute,) {
     this._route.paramMap.subscribe( params => {

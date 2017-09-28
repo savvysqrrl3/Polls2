@@ -1,5 +1,6 @@
-<a [routerLink]="['/dashboard']">Go to Polls</a>
-
+<div class="links">
+  <a [routerLink]="['/dashboard']" (click)="updatePoll()">Go to Polls</a>
+</div>
 <h4>{{poll.title}} </h4>
 <h5>Click the Vote button to choose one.</h5>
 

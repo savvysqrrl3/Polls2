@@ -22,7 +22,7 @@ module.exports = function(app){
 
 
     app.put('/polls/:id', function(req, res, next) {
-        items.update(req, res)
+        polls.update(req, res)
     });
     
 

@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateComponent } from './create/create.component';
 import { PollComponent } from './poll/poll.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PollComponent } from './poll/poll.component';
     LoginComponent,
     DashboardComponent,
     CreateComponent,
-    PollComponent
+    PollComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

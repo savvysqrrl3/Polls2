@@ -24,10 +24,12 @@ export class PollComponent implements OnInit {
       
           })
 
-    this.getPollInfo(); 
+    
+
    }
 
   ngOnInit() {
+    this.getPollInfo();
   }
 
   getPollInfo(){
@@ -37,7 +39,6 @@ export class PollComponent implements OnInit {
 
   opt1Vote(){
     this.poll.votes1 += 1;
-    // this._itemService.updateVote(this.poll_id, this.poll.votes1)
   }
   opt2Vote(){
     this.poll.votes2 += 1;
@@ -47,6 +48,11 @@ export class PollComponent implements OnInit {
   }
   opt4Vote(){
     this.poll.votes4 += 1;
+  }
+
+  updatePoll(){
+    this._itemService.updateVotes(this.poll_id, this.poll)
+    console.log("Sending from component to service:", this.poll);
   }
 
 

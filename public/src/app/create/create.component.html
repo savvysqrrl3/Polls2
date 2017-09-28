@@ -1,5 +1,6 @@
-<a [routerLink]="['/dashboard']">Cancel</a>
-
+<div class="links">
+  <a [routerLink]="['/dashboard']">Cancel</a>
+</div>
 <h4>Put the question and option here:</h4>
 
 <form (submit)="newPoll()" #addPoll='ngForm'>
@@ -13,6 +14,7 @@
     [(ngModel)]='newP.title'
     #title='ngModel'>
   </h5>
+  <span *ngIf="title.invalid && title.touched" class="error">Please include a question that is at least 8 characters long.</span>
   <h5>
     Option 1:
     <input 
@@ -23,6 +25,7 @@
     [(ngModel)]='newP.opt1'
     #opt1='ngModel'>
   </h5>
+  <span *ngIf="opt1.invalid && opt1.touched" class="error">Please include an answer option that is at least 3 characters long.</span>
   <h5>
     Option 2:
     <input 
@@ -33,6 +36,7 @@
     [(ngModel)]='newP.opt2'
     #opt2='ngModel'>
   </h5>
+  <span *ngIf="opt2.invalid && opt2.touched" class="error">Please include an answer option that is at least 3 characters long.</span>
   <h5>
     Option 3:
     <input 
@@ -43,6 +47,7 @@
     [(ngModel)]='newP.opt3'
     #opt3='ngModel'>
   </h5>
+  <span *ngIf="opt3.invalid && opt3.touched" class="error">Please include an answer option that is at least 3 characters long.</span>
   <h5>
     Option 4:
     <input 
@@ -53,9 +58,12 @@
     [(ngModel)]='newP.opt4'
     #opt4='ngModel'>
   </h5>
+  <span *ngIf="opt4.invalid && opt4.touched" class="error">Please include an answer option that is at least 3 characters long.</span>
+  <br>
   <input 
   type="submit" 
-  value="Create Poll" 
+  value="Create Poll"
+  id="button" 
   [disabled]='addPoll.invalid'>
 </form>
 

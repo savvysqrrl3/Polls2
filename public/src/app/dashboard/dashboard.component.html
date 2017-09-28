@@ -7,7 +7,7 @@
 
 <div id="search">
   <form>
-    <input type="text" name="search" placeholder="Search" [(ngModel)]="search.content">
+    <input type="text" name="searchterms" placeholder="Search" [(ngModel)]="searchterms">
   </form>
 </div>
 <table>
@@ -18,13 +18,13 @@
     <th>Action</th>
   </tr>
 
-  <tr *ngFor='let poll of allPolls'>
+  <tr *ngFor='let poll of allPolls | search:searchterms'>
     <td>{{poll.author}}</td>
     <td>
       <a [routerLink]="['/poll', poll._id]"> {{poll.title}}
       </a>
     </td>
-    <td>{{poll.created_at | date: 'medium'}} </td>
+    <td>{{poll.created_at | date: 'longDate'}} </td>
     <td>
       <a [routerLink]="['/dashboard']" *ngIf="poll.author == username" (click)='removePoll(poll._id)'> Delete </a>
     </td>

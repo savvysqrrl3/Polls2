@@ -1,3 +1,7 @@
+.links {
+    margin-left: 90%;
+}
+
 table {
     border: 2px solid black;
     border-collapse: collapse;
@@ -20,6 +24,7 @@ button {
     width:70px;
     height: 30px;
     box-shadow: 2px 2px 1px black;
+    background-color: white;
     border-radius: 2px;
     margin-left: 15%;
 }

@@ -65,34 +65,35 @@ module.exports = {
         })
     },
 
-    // update: function (req, res) {
-    //     console.log(1, "Updating poll...")
-    //     Poll.findById(req.params.id, function (err, poll) {
-    //         if (err) {
-    //             console.log('Could not find poll by id.');
-    //             res.json(err);
+    update: function (req, res) {
+        console.log(1, "Updating item...")
+        Poll.findById(req.params.id, function (err, poll) {
+            if (err) {
+                console.log('Could not find item by id.');
+                res.json(err);
 
-    //         }
-    //         else {
-    //             console.log(2)
-    //             poll['game' + req.body.game]= req.body.status;
-    //             item.save(function (err) {
-    //                 if (err) {
-    //                     console.log('Could not save updates to Item');
-    //                     return res.json();
+            }
+            else {
+                console.log(2, req.body.poll)
+                poll.votes1 = req.body.poll.votes1;
+                poll.votes2 = req.body.poll.votes2;
+                poll.votes3 = req.body.poll.votes3;
+                poll.votes4 = req.body.poll.votes4;
+                console.log(poll);
+                poll.save(function (err) {
+                    if (err) {
+                        console.log('Could not save updates to Poll');
+                        return res.json();
         
-    //                 }
-    //                 else {
-    //                     console.log(3, "Item updates successfully saved");
-    //                     Item.find({}, function (err, items) {
-    //                         res.json(items);
-    //                     })
-    //                 }
-    //             })                
-    //         }
-    //     })
-    // },
-
+                    }
+                    else {
+                        console.log(3, "Poll updates successfully saved"); 
+                            return res.json(poll);
+                    }
+                })                
+            }
+        })
+    },
 
     // closing curly brace: don't paste over!
 }

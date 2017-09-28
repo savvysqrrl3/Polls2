@@ -7,10 +7,11 @@ import 'rxjs';
 export class ItemService {
 
   currentUser;
-
-  constructor(private _http: Http) { }
   onePoll;
   pollsList = [];
+
+  constructor(private _http: Http) { }
+  
   userObserver = new BehaviorSubject(this.currentUser);
   pollObserver = new BehaviorSubject(this.onePoll);
   Observer = new BehaviorSubject(this.pollsList);
@@ -72,7 +73,7 @@ get1Poll(id){
       (response) => {
         console.log("success", response.json() );
         this.onePoll = response.json();
-        this.Observer.next(this.pollsList);
+        this.retrieveAll();
       },
       (err) => {
         console.log("failed to remove poll", err.json )
@@ -81,13 +82,13 @@ get1Poll(id){
   }
   // end of removePoll function
 
-  updateVote(id, votenum){
-    this._http.put(`/items/${id}`, {votenum: votenum, })
+  updateVotes(id, poll){
+    this._http.put(`/polls/${id}`, {poll: poll })
     .subscribe (
       (response) => {
-        console.log("success", response.json() );
-        this.onePoll = response.json();
-        this.pollObserver.next(this.onePoll);
+        console.log("successful update, returned to service", response.json() );
+        // this.onePoll = response.json();
+        // this.pollObserver.next(this.onePoll);
       },
       (err) => {
         console.log("failed to update item", err.json )

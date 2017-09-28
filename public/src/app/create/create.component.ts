@@ -13,12 +13,6 @@ export class CreateComponent implements OnInit {
   username;
   constructor(private _itemService: ItemService, private _router: Router) 
   {
-    // this._itemService.userObserver.subscribe((currentUser) => {
-    //   console.log("Username from service is:", currentUser);
-    //         this.username = currentUser;
-    //         console.log("In the component, username is set to", this.username);
-      
-    //       })
    
     this.username = this._itemService.currentUser;
     console.log('CreateComponent - username is: ', this.username)
